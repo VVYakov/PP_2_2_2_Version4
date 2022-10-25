@@ -24,10 +24,6 @@ public class CarsController {
 
     @GetMapping()
     public String getAllCars(@RequestParam(value = "count", defaultValue = "5") int count, Model model) {
-        System.out.println(count);
-        List<Car> carList;
-        carList = carService.getAllCars(count);
-        carList.stream().forEach(System.out::println);
         model.addAttribute("cars", carService.getAllCars(count));
         return "cars";
     }
